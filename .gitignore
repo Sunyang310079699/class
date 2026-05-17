@@ -1,0 +1,8 @@
+vocal-class-backend/scripts/RECREATE_DB_README.md
+
+# Local environment files
+**/.env
+**/.env.*
+
+# Installed dependencies
+**/node_modules/

@@ -1,0 +1,191 @@
+/**
+ * 响应式设计
+ * 适配不同屏幕尺寸
+ */
+
+// 断点定义
+$screen-xs: 375px;  // 小屏手机
+$screen-sm: 414px;  // 常规手机
+$screen-md: 768px;  // 平板竖屏
+$screen-lg: 1024px; // 平板横屏 / 小屏电脑
+
+// Mixins
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'xs' {
+    @media (max-width: #{$screen-xs}) {
+      @content;
+    }
+  }
+  @else if $breakpoint == 'sm' {
+    @media (min-width: #{$screen-xs + 1}) and (max-width: #{$screen-sm}) {
+      @content;
+    }
+  }
+  @else if $breakpoint == 'md' {
+    @media (min-width: #{$screen-md}) and (max-width: #{$screen-lg - 1}) {
+      @content;
+    }
+  }
+  @else if $breakpoint == 'lg' {
+    @media (min-width: #{$screen-lg}) {
+      @content;
+    }
+  }
+}
+
+// 全局响应式样式
+#app {
+  max-width: 428px;
+  margin: 0 auto;
+  position: relative;
+  
+  // 大屏幕添加阴影
+  @include respond-to('lg') {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// 小屏幕优化
+@include respond-to('xs') {
+  // 减小间距
+  .stats-cards {
+    gap: 8px !important;
+    padding: 12px !important;
+  }
+  
+  .action-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 8px !important;
+  }
+  
+  // 字体大小调整
+  .section-title {
+    font-size: 15px !important;
+  }
+  
+  .card-value {
+    font-size: 16px !important;
+  }
+  
+  .student-name {
+    font-size: 14px !important;
+  }
+}
+
+// 平板优化
+@include respond-to('md') {
+  // 增加内容宽度
+  .students-list,
+  .income-list,
+  .schedule-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  // 网格布局优化
+  .stats-cards {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+  
+  .action-grid {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+// 大屏幕优化
+@include respond-to('lg') {
+  // 内容居中
+  .home-page,
+  .students-page,
+  .schedule-page,
+  .income-page,
+  .profile-page {
+    max-width: 428px;
+    margin: 0 auto;
+  }
+  
+  // 卡片样式增强
+  .student-card,
+  .income-item,
+  .course-card {
+    transition: all 0.3s;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+// 确保按钮在所有尺寸下可点击
+.add-btn,
+.submit-btn {
+  min-height: 44px;
+  
+  @include respond-to('xs') {
+    width: calc(100% - 24px) !important;
+    font-size: 14px !important;
+  }
+}
+
+// 图表响应式
+.chart {
+  width: 100% !important;
+  
+  @include respond-to('xs') {
+    height: 250px !important;
+  }
+  
+  @include respond-to('md') {
+    height: 350px !important;
+  }
+}
+
+// 表单优化
+.van-cell-group {
+  @include respond-to('md') {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// 底部导航栏
+.van-tabbar {
+  max-width: 428px;
+  // left: 50%;
+  // transform: translateX(-50%);
+  
+  @include respond-to('xs') {
+    .van-tabbar-item__text {
+      font-size: 10px;
+    }
+  }
+}
+
+// 触摸优化
+@media (hover: none) and (pointer: coarse) {
+  // 移动设备触摸优化
+  .action-item,
+  .stat-item,
+  .student-card,
+  .course-card {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+}
+
+// 横屏提示（可选）
+@media (orientation: landscape) and (max-height: 500px) {
+  .greeting,
+  .user-info {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+  
+  .stats-cards {
+    margin-top: -20px !important;
+  }
+}
+

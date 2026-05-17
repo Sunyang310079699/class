@@ -1,0 +1,148 @@
+{
+  "pages": [
+    {
+      "path": "pages/login/index",
+      "style": {
+        "navigationBarTitleText": "登录",
+        "navigationStyle": "default",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/home/index",
+      "style": {
+        "navigationBarTitleText": "首页",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/schedule/index",
+      "style": {
+        "navigationBarTitleText": "课表",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/students/index",
+      "style": {
+        "navigationBarTitleText": "学生",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/income/index",
+      "style": {
+        "navigationBarTitleText": "收益",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/profile/index",
+      "style": {
+        "navigationBarTitleText": "我的",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/students/add",
+      "style": {
+        "navigationBarTitleText": "添加学生"
+      }
+    },
+    {
+      "path": "pages/students/detail",
+      "style": {
+        "navigationBarTitleText": "学生详情"
+      }
+    },
+    {
+      "path": "pages/schedule/add",
+      "style": {
+        "navigationBarTitleText": "创建课程"
+      }
+    },
+    {
+      "path": "pages/schedule/recurring",
+      "style": {
+        "navigationBarTitleText": "周期性排课"
+      }
+    }
+  ],
+  "subPackages": [
+    {
+      "root": "subpackages/student",
+      "pages": [
+        {
+          "path": "home/index",
+          "style": {
+            "navigationBarTitleText": "学生首页"
+          }
+        },
+        {
+          "path": "schedule/index",
+          "style": {
+            "navigationBarTitleText": "我的课表"
+          }
+        },
+        {
+          "path": "records/index",
+          "style": {
+            "navigationBarTitleText": "我的记录"
+          }
+        },
+        {
+          "path": "profile/index",
+          "style": {
+            "navigationBarTitleText": "个人中心"
+          }
+        }
+      ]
+    }
+  ],
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#1989fa",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "static/tabbar/home.png",
+        "selectedIconPath": "static/tabbar/home-active.png"
+      },
+      {
+        "pagePath": "pages/schedule/index",
+        "text": "课表",
+        "iconPath": "static/tabbar/schedule.png",
+        "selectedIconPath": "static/tabbar/schedule-active.png"
+      },
+      {
+        "pagePath": "pages/students/index",
+        "text": "学生",
+        "iconPath": "static/tabbar/students.png",
+        "selectedIconPath": "static/tabbar/students-active.png"
+      },
+      {
+        "pagePath": "pages/income/index",
+        "text": "收益",
+        "iconPath": "static/tabbar/income.png",
+        "selectedIconPath": "static/tabbar/income-active.png"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的",
+        "iconPath": "static/tabbar/profile.png",
+        "selectedIconPath": "static/tabbar/profile-active.png"
+      }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "声乐教学管理系统",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#f7f8fa"
+  }
+}
+
+

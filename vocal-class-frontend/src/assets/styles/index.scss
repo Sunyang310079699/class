@@ -1,0 +1,99 @@
+@use './variables.scss' as *;
+@use './responsive.scss' as *;
+
+// 全局样式
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  font-size: $font-size-md;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+// Vant 主题定制
+:root {
+  --van-primary-color: #{$primary-color};
+  --van-success-color: #{$success-color};
+  --van-danger-color: #{$danger-color};
+  --van-warning-color: #{$warning-color};
+  --van-text-color: #{$text-color};
+  --van-border-color: #{$border-color};
+  --van-background-color: #{$background-color};
+}
+
+// 通用工具类
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// 渐变卡片样式
+.gradient-card {
+  border-radius: $border-radius-lg;
+  color: white;
+  padding: $padding-lg;
+  box-shadow: $box-shadow-md;
+
+  &.student {
+    background: $student-gradient;
+  }
+
+  &.income {
+    background: $income-gradient;
+  }
+
+  &.schedule {
+    background: $schedule-gradient;
+  }
+
+  &.attention {
+    background: $attention-gradient;
+  }
+}
+
+// 页面容器
+.page-container {
+  min-height: calc(100vh - 50px);
+  padding: $padding-lg;
+  padding-bottom: 70px;
+}
+

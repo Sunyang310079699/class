@@ -1,0 +1,46 @@
+{
+  "name": "vocal-class-desktop",
+  "version": "1.0.0",
+  "description": "声乐教学管理系统 Electron 桌面端",
+  "main": "src/main/main.js",
+  "private": true,
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "prepare:renderer": "node scripts/build-renderer.mjs",
+    "start": "npm run prepare:renderer && electron .",
+    "pack": "npm run prepare:renderer && electron-builder --dir",
+    "dist": "npm run prepare:renderer && electron-builder"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^39.2.6",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.vocalclass.desktop",
+    "productName": "声乐教学管理系统",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "renderer",
+        "to": "renderer"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
